@@ -6,4 +6,4 @@ ENV PROJECT_DIR=/opt/project \
 WORKDIR ${PROJECT_DIR}
 COPY . ${PROJECT_DIR}
 
-CMD npm start
+CMD npm i && npm start
