@@ -4,106 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Home</title>
-    <style>
-        html{
-            font-size:16px;
-        }
-
-        body{
-            margin:0;
-        }
-
-        #logo a{
-            color:black;
-            text-decoration:none;
-        }
-
-        #logo p{
-            font-size:2rem;
-            margin:0.25rem;
-        }
-
-        #navbar{
-            /* background:linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
-            background:linear-gradient(-45deg, #FF3100, #FF8700, #047EB3, #00C550);
-            background-size:400% 400%;
-            animation:navbar-anim 10s ease infinite;
-            text-transform:uppercase;
-        }
-
-        #navbar a{
-            color:white;
-            text-shadow:0.1rem 0.1rem 0.1rem black;
-            text-decoration:none;
-            font-size:1rem;
-            padding:0.25rem;
-            transition:0.5s;
-            display:inline-block;
-        }
-
-        #navbar a:hover{
-            color:black;
-        }
-
-        #navbar a.active{
-            background-color:rgba(0, 0, 0, 0.5);
-        }
-
-        #navbar a.active:hover{
-            background-color:rgba(0, 0, 0, 0.75);
-            color:white;
-        }
-
-        #navbutton{
-            width:2rem;
-            height:2rem;
-            margin:0.25rem 0.4rem 0 0;
-        }
-
-        #navbutton:hover{
-            cursor:pointer;
-        }
-
-        #navbutton div{
-            width:2rem;
-            height:10%;
-            margin:20% 0;
-            border-radius:0.1rem;
-            transition:0.5s;
-            background-color:black;
-        }
-
-        .open-navigation #navbutton div{
-            margin-left:0.2rem;
-        }
-
-        .open-navigation #navbutton div:nth-child(1){
-            transform:rotate(45deg) translate(0.35rem, 0.5rem);
-        }
-
-        .open-navigation #navbutton div:nth-child(2){
-            opacity:0;
-        }
-
-        .open-navigation #navbutton div:nth-child(3){
-            transform:rotate(-45deg) translate(0.35rem, -0.5rem);
-        }
-
-        @keyframes navbar-anim{
-            0%   { background-position: 0% 50%; }
-            50%  { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .flex-container{
-            display:flex;
-        }
-
-        .flex-spacer{
-            flex-grow:1;
-        }
-    </style>
     <script>
         let navbarAnchors;
 
@@ -114,6 +16,8 @@
                 anchor.onclick = () => {
                     updateActivePageAnchor(anchor);
                 };
+
+            document.querySelector(".year").innerText = new Date().getFullYear();
         };
 
         function toggleNavigation(){
@@ -144,10 +48,16 @@
             </div>
         </div>
         <div id="navbar">
-            <a href="#" class="active">Home</a>
-            <a href="#">About</a>
-            <a href="#">Home</a>
+            <a href="/" class="active">Home</a>
+            <a href="/about">About</a>
+            <a href="/images">Images</a>
         </div>
     </header>
+    <div id="content">
+        Welcome to my application!
+    </div>
+    <footer>
+        &copy; <span class="year"></span>
+    </footer>
 </body>
 </html>
