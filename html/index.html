@@ -10,14 +10,19 @@
         let navbarAnchors;
 
         window.onload = () => {
-            navbarAnchors = document.querySelectorAll("#navbar a");
-
-            for(let anchor of navbarAnchors)
+            // Navbar anchor onclick
+            for(let anchor of (navbarAnchors = document.querySelectorAll("#navbar a"))){
                 anchor.onclick = () => {
                     updateActivePageAnchor(anchor);
                 };
+            }
 
-            document.querySelector(".year").innerText = new Date().getFullYear();
+            // Copy-right year
+            document.querySelector("#copy-year").innerText = new Date().getFullYear();
+
+            // Window location
+            let location = document.querySelector("#location");
+            location.innerText = location.href = window.location;
         };
 
         function toggleNavigation(){
@@ -48,16 +53,16 @@
             </div>
         </div>
         <div id="navbar">
-            <a href="/" class="active">Home</a>
-            <a href="/about">About</a>
-            <a href="/images">Images</a>
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Images</a>
         </div>
     </header>
     <div id="content">
-        Welcome to my application!
+        Location: <a href="#" id="location"></a>
     </div>
     <footer>
-        &copy; <span class="year"></span>
+        &copy; <span id="copy-year"></span>
     </footer>
 </body>
 </html>
