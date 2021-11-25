@@ -6,8 +6,6 @@ docker build --tag home .
 
 IMAGES=$(docker images | grep "<none>" | awk '{ print $3 }')
 
-if [ ! -z "$IMAGES" ]; then
-    docker rmi -f $IMAGES
-fi
+[[ ! -z "$IMAGES" ]] && docker rmi -f $IMAGES || echo "No images to remove"
 
 docker run --rm -ti -v $(pwd):/opt/project -p 9000:8080 home
