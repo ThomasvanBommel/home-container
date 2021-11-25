@@ -18,6 +18,11 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "html/index.html"));
 });
 
+// API backend
+app.get("/api/:cmd", (req, res) => {
+    res.send(req.params);
+});
+
 // Start listening
 app.listen(port, () => {
     console.log(`Listening port ${ port }...`);
