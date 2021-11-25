@@ -3,6 +3,7 @@ const path = require("path");
 const app = express();
 
 const port = process.env.PORT || 8080;
+const api = require("./api.js");
 
 // Log request middleware
 app.use((req, res, next) => {
@@ -20,7 +21,7 @@ app.get("/", (req, res) => {
 
 // API backend
 app.get("/api/:cmd", (req, res) => {
-    res.send(req.params);
+    res.send(api[api[req.params.cmd] ? req.params.cmd : "default"](req, res));
 });
 
 // Start listening
