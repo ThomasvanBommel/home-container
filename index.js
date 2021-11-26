@@ -16,7 +16,7 @@ app.use(express.static("static"));
 
 // Serve homepage
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "html/index.html"));
+    res.sendFile(path.join(__dirname, "html/index2.html"));
 });
 
 // API backend
