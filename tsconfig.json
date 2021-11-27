@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "outDir": "./build",
+        "target": "ES3",
+        "strict": true,
+    },
+    "include": [
+        "./src/**/*.ts"
+    ]
+}
