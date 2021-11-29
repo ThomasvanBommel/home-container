@@ -2,8 +2,9 @@ import express from "express";
 import path from "path";
 import api from "./api";
 
+const project_dir: string = path.join(__dirname, "../../");
 const port: number = parseInt(process.env.PORT || "8080");
-const app = express();
+const app: express.Express = express();
 
 // log each request
 app.use((req, res, next) => {
@@ -12,11 +13,12 @@ app.use((req, res, next) => {
 });
 
 // serve static files
-app.use(express.static(path.join(__dirname, "../static")));
+app.use(express.static(path.join(project_dir, "static")));
+app.use(express.static(path.join(project_dir, "build/css")));
 
 // serve homepage
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../views/home.html"));
+    res.sendFile(path.join(project_dir, "views/home.html"));
 });
 
 // serve api backend

@@ -1,0 +1,126 @@
+@use "sass:color";
+
+$primary-color: black;
+$opposite-color: invert($primary-color);
+$background-color: mix($opposite-color, $primary-color, 80%);
+
+$header-height: 2rem;
+$header-padding: 0.5rem;
+$header-no-padding: calc($header-height - $header-padding * 2);
+
+$nav-anim-duration: 1s;
+
+$xs: 576px;
+$sm: 767px;
+$md: 991px;
+$lg: 1199px;
+$xl: 999999px;
+
+html{
+    font-size:16px;
+}
+
+body{
+    margin:0;
+    background-color: $background-color;
+}
+
+/* HEADER ---------------------------------------*/
+
+header{
+    height: $header-height;
+    display: flex;
+    background-color: $opposite-color;
+
+    p.logo{
+        margin: 0;
+        font-size: $header-no-padding;
+        padding: $header-padding;
+        color: $primary-color;
+    }
+
+    .spacer{
+        flex-grow: 1;
+    }
+
+    nav{
+        a{
+            padding: 0 2rem;
+            color: $primary-color;
+            text-decoration: none;
+
+            &:hover{
+                background-color: $background-color;
+            }
+        }
+
+        /* LARGE */
+        @media (max-width: $xs){
+            $border: 1px solid $primary-color;
+
+            background-color: $opposite-color;
+            border: $border;
+
+            position: absolute;
+            top: $header-height;
+            right: 0;
+            // left: 100%;
+
+            a{
+                // border-bottom: $border;
+                display: block;
+            }
+        }
+
+        /* SMALL */
+        @media (min-width: $xs){
+            a{
+                height: $header-no-padding;
+                padding: $header-padding;
+                display: inline-block;
+            }
+        }
+    }
+
+    .nav-button{
+        width: $header-no-padding;
+        height: $header-no-padding;
+        margin: $header-padding;
+        transform: rotate(0deg);
+        transition: $nav-anim-duration;
+
+        &:hover{
+            cursor: pointer;
+        }
+        
+        &.active{
+            transform: rotate(90deg);
+        }
+
+        div{
+            $spacing: calc($header-no-padding / 7);
+        
+            width: $header-no-padding;
+            height: $spacing;
+            margin-top: $spacing;
+            background-color: $primary-color;
+        }
+
+        @media (min-width: $xs){
+            display:none;
+        }
+    }
+}
+
+/* MAIN -----------------------------------------*/
+
+main{
+    width: 100%;
+
+}
+
+/* NAVIGATION -----------------------------------*/
+
+
+
+/* PLACEHOLDER ----------------------------------*/

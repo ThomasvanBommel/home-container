@@ -1,11 +1,13 @@
 FROM node
 
-ENV PROJECT_DIR=/opt/project \
-    PORT=8080
+ENV PORT=8080 \
+    PROJECT_DIR=/opt/project
 
 WORKDIR ${PROJECT_DIR}
-COPY . ${PROJECT_DIR}
+COPY . .
 
-RUN npm i
+RUN npm i && \
+    npx tsc && \
+    npx sass src/scss/:build/css/ --style compressed
 
-CMD npx tsc && npm start
+CMD npm start

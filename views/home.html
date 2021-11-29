@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/home.css">
+
     <title>Home</title>
+
+    <script>
+        function toggleNavigation(event){
+            document.querySelector("header .nav-button").classList.toggle("active");
+        }
+    </script>
 </head>
 <body>
-    <p>Welcome home!</p>
+    <header>
+        <p class="logo">Thomas vanBommel</p>
+        <div class="spacer"></div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+        </nav>
+        <div class="nav-button" onclick="toggleNavigation(event)">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <main>
+
+    </main>
+    
 </body>
 </html>
